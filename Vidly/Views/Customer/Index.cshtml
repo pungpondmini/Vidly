@@ -1,0 +1,43 @@
+﻿@using System.Activities.Expressions
+@model IEnumerable<Vidly.Models.Customer>
+
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+
+@if (!Model.Any())
+{
+    <text>We don't have Customer yet.</text>
+}
+else
+{
+    <table class="table	table-bordered	table-hover">
+        <tr>
+            <th>
+                Customers
+            </th>
+        </tr>
+
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(customer.Name, "Detail", "Customer", new { id = customer.Id }, null)
+                </td>
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                    </td>*@
+            </tr>
+        }
+
+    </table>
+}
