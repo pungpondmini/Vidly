@@ -44,6 +44,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0-beta1\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0-beta1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -143,12 +151,6 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -203,10 +205,48 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708090833062_InitialModel.cs" />
+    <Compile Include="Migrations\201708090833062_InitialModel.Designer.cs">
+      <DependentUpon>201708090833062_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708091317460_AddIsSubscribedToCustomer.cs" />
+    <Compile Include="Migrations\201708091317460_AddIsSubscribedToCustomer.Designer.cs">
+      <DependentUpon>201708091317460_AddIsSubscribedToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708091322019_AddMembershipType.cs" />
+    <Compile Include="Migrations\201708091322019_AddMembershipType.Designer.cs">
+      <DependentUpon>201708091322019_AddMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708091324437_PopulateMembershipType.cs" />
+    <Compile Include="Migrations\201708091324437_PopulateMembershipType.Designer.cs">
+      <DependentUpon>201708091324437_PopulateMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708091331547_ApplyAnnotationsToCustomerName.cs" />
+    <Compile Include="Migrations\201708091331547_ApplyAnnotationsToCustomerName.Designer.cs">
+      <DependentUpon>201708091331547_ApplyAnnotationsToCustomerName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708091442123_AddNameToMembershipType.cs" />
+    <Compile Include="Migrations\201708091442123_AddNameToMembershipType.Designer.cs">
+      <DependentUpon>201708091442123_AddNameToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708091518481_AddBirthdateToCustomer.cs" />
+    <Compile Include="Migrations\201708091518481_AddBirthdateToCustomer.Designer.cs">
+      <DependentUpon>201708091518481_AddBirthdateToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708091557524_AddAliasNameMembershipTypeNameToMembershipType.cs" />
+    <Compile Include="Migrations\201708091557524_AddAliasNameMembershipTypeNameToMembershipType.Designer.cs">
+      <DependentUpon>201708091557524_AddAliasNameMembershipTypeNameToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708091607142_AddOptionalDateTimeToMembershipType.cs" />
+    <Compile Include="Migrations\201708091607142_AddOptionalDateTimeToMembershipType.Designer.cs">
+      <DependentUpon>201708091607142_AddOptionalDateTimeToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -289,6 +329,35 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201708090833062_InitialModel.resx">
+      <DependentUpon>201708090833062_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708091317460_AddIsSubscribedToCustomer.resx">
+      <DependentUpon>201708091317460_AddIsSubscribedToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708091322019_AddMembershipType.resx">
+      <DependentUpon>201708091322019_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708091324437_PopulateMembershipType.resx">
+      <DependentUpon>201708091324437_PopulateMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708091331547_ApplyAnnotationsToCustomerName.resx">
+      <DependentUpon>201708091331547_ApplyAnnotationsToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708091442123_AddNameToMembershipType.resx">
+      <DependentUpon>201708091442123_AddNameToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708091518481_AddBirthdateToCustomer.resx">
+      <DependentUpon>201708091518481_AddBirthdateToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708091557524_AddAliasNameMembershipTypeNameToMembershipType.resx">
+      <DependentUpon>201708091557524_AddAliasNameMembershipTypeNameToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708091607142_AddOptionalDateTimeToMembershipType.resx">
+      <DependentUpon>201708091607142_AddOptionalDateTimeToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
